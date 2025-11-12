@@ -1,1 +1,8 @@
-# Final
+⚔️ Unmatched Store — Fan Website
+This project is an online store (fan website) dedicated to the tactical miniature combat game Unmatched. The main purpose of the site is to showcase the basic game sets and fulfill the complex requirements for developing an external interface, including a dark, responsive theme and advanced interactions using JavaScript.
+
+The project fully complies with all the requirements set out in the specification, especially demonstrating mastery of advanced JavaScript and jQuery functions, as well as the principles of responsive design. The site includes more than five pages: index.html (home page), catalog.html (catalog), cart.html (shopping cart), contact.html (contacts) and about.html (about the project/roster). The design is made in a custom dark theme defined using CSS variables, and the layout is based on Flexbox and Media Queries to ensure full adaptability on mobile and desktop devices.
+
+The project implements complex interactive JavaScript functions. The CRUD functionality (Create, Read, Update, Delete) is implemented on the About page in the form of a dynamic character roster table that includes a real-time search by character name. The most complex form validation, including email verification using RegEx, password strength indicator, and password match verification, is built into the Modal Registration Window on the main page, which also fulfills the requirement to use pop-up windows.
+
+The Gallery functionality with Lightbox and Filtering is implemented on the Catalog page. Users can filter products by the number of characters in a box using the jQuery method.filter(), and animation is used for smooth transitions.fadeIn() and .fadeOut(). In addition, other animations are included in the project, such as logo animation and element scrolling animation, which together provide a high-quality visual response.
