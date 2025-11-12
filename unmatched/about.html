@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unmatched Game Store - About</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="logo-header">
+        <img src="images/logo.png" alt="Unmatched Logo" class="logo-img">
+    </header>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html">Catalog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+
+        <section class="about-us-section text-center animate-on-scroll">
+            <h1 class="section-title mb-4">✨ About Our Fan Site and Character Roster</h1>
+            <p class="lead" style="color: var(--text-secondary);">
+                Welcome! This site is a **fan community** completely dedicated to the tactical miniature fighting game **Unmatched**. Below is a list of famous heroes, and you can also suggest and add your own custom character!
+            </p>
+        </section>
+
+        <hr style="border-color: var(--border-dark); margin: 4rem 0;">
+
+        <section class="characters-section animate-on-scroll" style="transition-delay: 0.2s;">
+            <h2 class="section-title text-center mb-4">⚔️ All Unmatched Characters</h2>
+
+            <div class="mb-4">
+                <input type="text" class="form-control" id="character-search" placeholder="Search by Character Name..." style="background-color: var(--card-bg); color: var(--text-primary); border-color: var(--border-dark);">
+            </div>
+
+            <div class="table-responsive shadow-lg">
+                <table class="table table-dark table-hover align-middle" id="characters-table" style="--bs-table-bg: var(--card-bg); --bs-table-hover-bg: #2a2a2a; border: 2px solid var(--accent-purple); border-radius: 10px;">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="color: var(--accent-pink);">Character Name</th>
+                            <th scope="col" style="color: var(--accent-pink);">Special Ability</th>
+                            <th scope="col" style="color: var(--accent-pink);">HP</th>
+                            <th scope="col" style="width: 150px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="characters-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr style="border-color: var(--border-dark); margin: 4rem 0;">
+
+        <section class="suggest-section animate-on-scroll" style="transition-delay: 0.4s;">
+            <h2 class="section-title text-center mb-4">💡 Suggest Your Own Character</h2>
+
+            <form id="suggest-character-form" class="p-4 shadow-lg" style="background-color: var(--card-bg); border-radius: 10px;">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="char-name" class="form-label text-white">Character Name</label>
+                        <input type="text" class="form-control" id="char-name" required placeholder="Example: Wonder Woman">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="char-ability" class="form-label text-white">Special Ability</label>
+                        <input type="text" class="form-control" id="char-ability" required placeholder="Example: Deflect Bullets">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="char-hp" class="form-label text-white">HP (6-20)</label>
+                        <input type="number" class="form-control" id="char-hp" min="6" max="20" required value="10">
+                    </div>
+                </div>
+
+                <div class="mt-4 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">
+                        Add Character
+                    </button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <p class="mb-0">© 2025 Unmatched Store — Fan Website</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

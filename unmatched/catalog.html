@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unmatched Game Store - Catalog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="logo-header">
+        <img src="images/logo.png" alt="Unmatched Logo" class="logo-img">
+    </header>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="catalog.html">Catalog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <h1 class="section-title text-center mb-4 animate-on-scroll">Core Unmatched Sets</h1>
+
+        <div class="filter-controls text-center mb-5 animate-on-scroll" style="transition-delay: 0.2s;">
+            <h5 class="text-white mb-3">Filter by Fighter Count:</h5>
+            <button class="btn btn-outline-light filter-btn me-2 mb-2 active" data-filter="all">All Sets</button>
+            <button class="btn btn-outline-light filter-btn me-2 mb-2" data-filter="4">4 Fighters</button>
+            <button class="btn btn-outline-light filter-btn me-2 mb-2" data-filter="3">3 Fighters</button>
+            <button class="btn btn-outline-light filter-btn me-2 mb-2" data-filter="2">2 Fighters</button>
+            <button class="btn btn-outline-light filter-btn mb-2" data-filter="1">1 Fighter</button>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="product-list">
+
+            <script>
+                // Product data embedded for easy list generation
+                const products = [
+                    { name: "Battle of Legends Vol.1", price: 39.99, img: "fir.jpg", fighters: 4, desc: "King Arthur, Medusa, Alice, Sinbad" },
+                    { name: "Battle of Legends Vol.2", price: 39.99, img: "sec.jpg", fighters: 4, desc: "Sun Wukong, Bloody Mary, Achilles, Yennenga" },
+                    { name: "Cobble & Fog", price: 39.99, img: "cob.jpg", fighters: 4, desc: "Sherlock Holmes, Dracula, Jekyll & Hyde, Invisible Man" },
+                    { name: "Bruce Lee", price: 17.99, img: "brc.jpg", fighters: 1, desc: "Bruce Lee (Standalone)" },
+                    { name: "Jurassic Park – InGen vs Raptors", price: 24.99, img: "rapt.jpg", fighters: 2, desc: "Robert Muldoon and 3 Raptors" },
+                    { name: "Robin Hood vs Bigfoot", price: 24.99, img: "rbn.jpg", fighters: 2, desc: "Robin Hood and Bigfoot" },
+                    { name: "Little Red Riding Hood vs Beowulf", price: 24.99, img: "ltl.jpg", fighters: 2, desc: "Little Red Riding Hood and Beowulf" },
+                    { name: "Hell’s Kitchen", price: 39.99, img: "hll.jpg", fighters: 3, desc: "Daredevil, Elektra, Bullseye" },
+                    { name: "Redemption Row", price: 39.99, img: "red.jpg", fighters: 3, desc: "Luke Cage, Ghost Rider, Misty Knight" },
+                    { name: "Houdini vs The Genie", price: 24.99, img: "hdn.jpg", fighters: 2, desc: "Houdini and The Genie" },
+                    { name: "Buffy the Vampire Slayer", price: 39.99, img: "bff.jpg", fighters: 4, desc: "Buffy, Angel, Spike, Willow" },
+                    { name: "Brains & Brawn", price: 39.99, img: "brbr.jpg", fighters: 3, desc: "Hulk, She-Hulk, Doctor Strange" }
+                ];
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    const productList = document.getElementById('product-list');
+                    if (productList) {
+                        products.forEach((product, index) => {
+                            const col = document.createElement('div');
+                            col.className = 'col product-item animate-on-scroll';
+                            col.setAttribute('data-fighters', product.fighters); // Добавляем атрибут для фильтрации
+                            col.style.transitionDelay = `${index * 0.1}s`;
+                            col.innerHTML = `
+                                                        <div class="card product-card shadow-lg">
+                                                            <img src="${product.img}" class="card-img-top product-img" alt="${product.name} cover" data-name="${product.name}" data-desc="${product.desc}">
+                                                            <div class="card-body d-flex flex-column">
+                                                                <h5 class="card-title">${product.name}</h5>
+                                                                <p class="text-secondary mb-2">${product.fighters} Fighters</p>
+                                                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                                                    <p class="price mb-0">${product.price.toFixed(2)} GP</p>
+                                                                    <button class="btn btn-primary" onclick="addToCart('${product.name}', ${product.price}, '${product.img}')">
+                                                                        Add to Cart
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    `;
+                            productList.appendChild(col);
+                        });
+                    }
+                });
+            </script>
+        </div>
+    </main>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <p class="mb-0">© 2025 Unmatched Store — Fan Website</p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="background-color: var(--card-bg); border: 2px solid var(--accent-purple);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-white" id="lightboxModalLabel">Product Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="lightbox-image" src="" class="img-fluid rounded shadow-lg" alt="Product Image">
+                    <div class="p-3">
+                        <h3 class="section-title mt-3" id="lightbox-name"></h3>
+                        <p class="text-secondary" id="lightbox-desc"></p>
+                        <button class="btn btn-primary mt-3" id="lightbox-add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
